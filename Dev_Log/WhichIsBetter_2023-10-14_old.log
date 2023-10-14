@@ -1,0 +1,23 @@
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+2023-10-14 15:03:47,887 INFO: Got JSON Data: {'user_name': 'graber1991', 'user_pass': '123456', 'question': "in python print('Hello')"}
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+2023-10-14 15:04:10,629 INFO: Got JSON Data: {'user_name': 'graber1991', 'user_pass': '123456', 'question': "in python print('Hello')"}
+2023-10-14 15:04:14,276 INFO: Answer: "The Python code to print \"Hello\" is:\n\n```python\nprint('Hello')\n```\n\nWhen this code is run, it will display the text `Hello` on the console."
+2023-10-14 15:04:34,699 INFO: Got JSON Data: {'user_name': 'graber1991', 'user_pass': '123456', 'question': "in python print('Hello')"}
+2023-10-14 15:04:37,293 INFO: Answer: "The command you provided is correct. Here is the code:\n\n```python\nprint('Hello')\n```\n\nWhen you run this code, it will display \"Hello\" as the output."
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+2023-10-14 15:11:40,977 INFO: EVENT_TYPE : 'Q', USERNAME : graber1991, QUESTION : in python print('Hello'), RESPONDER : None , RESPONSE : None
+2023-10-14 15:11:45,046 INFO: EVENT_TYPE : 'R', USERNAME : graber1991, QUESTION : in python print('Hello'), RESPONDER : 'CHATGPT' , RESPONSE : "In Python, the print() function is used to output data to the standard output device (screen). Here is how you can print \"Hello\" in Python:\n\n```python\nprint('Hello')\n```\n\nWhen you run this code, it will print:\n\n```\nHello\n```"
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+2023-10-14 15:13:57,990 INFO: EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None
+2023-10-14 15:14:01,243 INFO: EVENT_TYPE : 'R', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : 'CHATGPT' , RESPONSE : "The code you provided is already correct. \n\nHere it is:\n\n```python\nprint('Hello')\n```\n\nWhen this line of code is executed, it will print the string \"Hello\" to the console."
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+2023-10-14 15:15:25,409 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-14 15:15:29,412 INFO: "EVENT_TYPE : 'R', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : 'CHATGPT' , RESPONSE : The command to print \"Hello\" in Python is indeed `print('Hello')`.\n\nWhen this command is executed, it displays the word \"Hello\" on the console. \n\nHere it is:\n\n```python\nprint('Hello')\n```\n\nOnce you run this, you will see:\n\n```\nHello\n```"
+CHAT_APP_STARTED 
