@@ -1,0 +1,11 @@
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+2023-10-14 15:29:32,801 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-14 15:29:34,047 INFO: "EVENT_TYPE : 'R', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : 'CHATGPT' , RESPONSE : print('Hello')"
+CHAT_APP_STARTED 
+CHAT_APP_STARTED 
+2023-10-14 15:31:49,751 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-14 15:31:53,623 INFO: "EVENT_TYPE : 'R', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : 'CHATGPT' , RESPONSE : The command you've written is correct. When you run it, it will display \"Hello\" in the console.\n\nHere is the code:\n\n```python\nprint('Hello')\n```\n\nIf you run this code, you should see:\n\n```\nHello\n```"
