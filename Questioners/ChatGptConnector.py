@@ -2,6 +2,7 @@ import sys
 sys.path.append("/Users/sanglokkim/dev_env/WhichIsBetter_Dev")
 import requests
 from JDBCConnector.jdbcConnector import UserDatabase
+from JDBCConnector.jdbcConnectorError import JDBCConnectionError
 
 class ChatGPTQuestioner:
     API_URL = "https://api.openai.com/v1/chat/completions"
@@ -16,8 +17,12 @@ class ChatGPTQuestioner:
             if api_key == "Invalid User or Password":
                 raise ValueError("Invalid User or Password")
             return api_key
+        # except JDBCConnectionError:
+        #     raise JDBCConnectionError()
         except ValueError as ve:
             raise ValueError(f"Error in fetching API Key: {str(ve)}")
+        
+        
             
     def make_request(self, question):
         try:

@@ -1,0 +1,20 @@
+2023-10-15 17:10:42,750 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:10:43,101 ERROR: Invalid User or Password
+2023-10-15 17:19:12,023 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:19:12,321 ERROR: Invalid User or Password
+2023-10-15 17:37:43,692 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:37:43,968 ERROR: Invalid User or Password
+2023-10-15 17:44:06,649 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:44:07,018 ERROR: Invalid User or Password
+2023-10-15 17:46:01,017 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:46:01,309 ERROR: Invalid User or Password
+2023-10-15 17:49:41,112 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:49:41,403 ERROR: Invalid User or Password
+2023-10-15 17:51:17,497 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:51:17,963 ERROR: Invalid User or Password
+2023-10-15 17:58:41,219 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:58:41,550 ERROR: Invalid User or Password
+2023-10-15 17:59:39,075 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 17:59:39,378 ERROR: Invalid User or Password
+2023-10-15 18:03:39,734 INFO: "EVENT_TYPE : 'Q', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : None , RESPONSE : None"
+2023-10-15 18:03:41,875 INFO: "EVENT_TYPE : 'R', USERNAME : 'graber1991', QUESTION : 'in python print('Hello')', RESPONDER : 'CHATGPT' , RESPONSE : The Python command to print \"Hello\" is:\n\n```python\nprint('Hello')\n```"
