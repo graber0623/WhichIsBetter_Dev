@@ -7,6 +7,7 @@ from datetime import datetime
 sys.path.append("/Users/sanglokkim/dev_env/WhichIsBetter_Dev")
 
 from JDBCConnector.jdbcConnector import UserDatabase
+from JDBCConnector.jdbcConnectorError import JDBCConnectionError
 from Questioners.ChatGptConnector import ChatGPTQuestioner
 from FileLogger.FileLogging import InfoFileLogger
 
@@ -38,6 +39,9 @@ def chatApp_ask():
     except KeyError:
         app.logger.error("Invalid JSON input")
         return jsonify({"error": "Invalid JSON input"}), 400
+    except JDBCConnectionError:
+        app.logger.error(f"MySQL Connection Error")
+        return jsonify({"error": "MySQL Connection Error"}), 500
     except ValueError:
         app.logger.error("Invalid User or Password")
         return jsonify({"error": "Invalid User or Password"}), 401
