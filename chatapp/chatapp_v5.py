@@ -39,15 +39,12 @@ def chatApp_ask():
     except KeyError:
         app.logger.error("Invalid JSON input")
         return jsonify({"error": "Invalid JSON input"}), 400
+    except ValueError:
+        app.logger.error("Invalid User or Password")
+        return jsonify({"error": "Invalid User or Password"}), 403
     except JDBCConnectionError:
         app.logger.error(f"MySQL Connection Error")
         return jsonify({"error": "MySQL Connection Error"}), 500
-    except ValueError:
-        app.logger.error("Invalid User or Password")
-        return jsonify({"error": "Invalid User or Password"}), 401
-    # except Exception as e:
-    #     app.logger.error(f"An error occurred: {str(e)}")
-    #     return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 ####
 @app.route("/chatApp/user/create", methods = ['PUT'])
