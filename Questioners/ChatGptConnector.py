@@ -8,17 +8,15 @@ class ChatGPTQuestioner:
     API_URL = "https://api.openai.com/v1/chat/completions"
     
     def __init__(self, username, password):
-        self.api_key = self._fetch_api_key(username, password)
+        self.api_key = self.fetch_api_key(username, password)
         
-    def _fetch_api_key(self, username, password):
+    def fetch_api_key(self, username, password):
         try:
             userConnect = UserDatabase()
             api_key = userConnect.get_user(username, password)
             if api_key == "Invalid User or Password":
                 raise ValueError("Invalid User or Password")
             return api_key
-        # except JDBCConnectionError:
-        #     raise JDBCConnectionError()
         except ValueError as ve:
             raise ValueError(f"Error in fetching API Key: {str(ve)}")
         

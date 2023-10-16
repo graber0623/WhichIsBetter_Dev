@@ -8,8 +8,9 @@ class UserDatabase:
         self.database = database
         self.user = user
         self.password = password
+        self.connection = self.connect()
 
-    def _connect(self):
+    def connect(self):
         try:
             return mysql.connector.connect(
                 host=self.host,
@@ -22,24 +23,31 @@ class UserDatabase:
             raise JDBCConnectionError(str(err))
 
     def user_create(self, user_name, user_pass, chatgpt_api_key):
-        mysql_con = None
+        mysql_con = self.connection
         mysql_cursor = None
+        checkUserQuery = f"""
+            SELECT COUNT(*) AS count FROM WhichIsBetter_Dev.Users WHERE USER_NAME = '{user_name}';
+                """
         userCreateQuery = f"""
                 INSERT INTO WhichIsBetter_Dev.Users (USER_NAME, USER_PASS, CHATGPT_API_KEY) 
                 VALUES ('{user_name}','{user_pass}',hex(aes_encrypt('{chatgpt_api_key}', 'a')));
-                 """
+                """
         try:
-            mysql_con = self._connect()
             mysql_cursor = mysql_con.cursor(dictionary=True)
-            mysql_cursor.execute(userCreateQuery)
-            mysql_con.commit()
-
-            if mysql_cursor.rowcount > 0:
-                return "User was successfully Created."
+            mysql_cursor.execute(checkUserQuery)
+            qresult = mysql_cursor.fetchone()
+            
+            if qresult["count"] > 0:
+                return "User Already Exists"
             else:
-                return "No user was Created."
-        except Exception as err:
-            return str(err)
+                mysql_cursor.execute(userCreateQuery)
+                mysql_con.commit()
+                if mysql_cursor.rowcount > 0:
+                    return "User Was Successfully Created."
+                else:
+                    return "No User was Created."
+        except JDBCConnectionError as err:
+            raise JDBCConnectionError(str(err))
         finally:
             if mysql_cursor:
                 mysql_cursor.close()
@@ -47,7 +55,7 @@ class UserDatabase:
                 mysql_con.close()
 
     def get_user(self, user_name, user_pass):
-        mysql_con = None
+        mysql_con = self.connection
         mysql_cursor = None
         getUserQuery = f"""
             SELECT CAST(AES_DECRYPT(unhex(CHATGPT_API_KEY), 'a') AS CHAR) as CHATGPT_API_KEY
@@ -56,7 +64,6 @@ class UserDatabase:
             """
 
         try:
-            mysql_con = self._connect()
             mysql_cursor = mysql_con.cursor(dictionary=True)
             mysql_cursor.execute(getUserQuery)
             result = mysql_cursor.fetchall()
@@ -65,8 +72,8 @@ class UserDatabase:
                 return result[0]['CHATGPT_API_KEY']
             else:
                 return "Invalid User or Password"
-        except Exception as err:
-            return str(err)
+        except JDBCConnectionError as err:
+            raise JDBCConnectionError(str(err))
         finally:
             if mysql_cursor:
                 mysql_cursor.close()
