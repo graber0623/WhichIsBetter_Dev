@@ -8,8 +8,9 @@ class UserDatabase:
         self.database = database
         self.user = user
         self.password = password
+        self.connection = self.connect()
 
-    def _connect(self):
+    def connect(self):
         try:
             return mysql.connector.connect(
                 host=self.host,
@@ -29,8 +30,7 @@ class UserDatabase:
                 VALUES ('{user_name}','{user_pass}',hex(aes_encrypt('{chatgpt_api_key}', 'a')));
                  """
         try:
-            mysql_con = self._connect()
-            mysql_cursor = mysql_con.cursor(dictionary=True)
+            mysql_cursor = self.connection.cursor(dictionary=True)
             mysql_cursor.execute(userCreateQuery)
             mysql_con.commit()
 
@@ -38,6 +38,8 @@ class UserDatabase:
                 return "User was successfully Created."
             else:
                 return "No user was Created."
+        except JDBCConnectionError as err:
+            raise JDBCConnectionError(str(err))
         except Exception as err:
             return str(err)
         finally:
@@ -56,8 +58,7 @@ class UserDatabase:
             """
 
         try:
-            mysql_con = self._connect()
-            mysql_cursor = mysql_con.cursor(dictionary=True)
+            mysql_cursor = self.connection.cursor(dictionary=True)
             mysql_cursor.execute(getUserQuery)
             result = mysql_cursor.fetchall()
 
@@ -65,6 +66,8 @@ class UserDatabase:
                 return result[0]['CHATGPT_API_KEY']
             else:
                 return "Invalid User or Password"
+        except JDBCConnectionError as err:
+            raise JDBCConnectionError(str(err))
         except Exception as err:
             return str(err)
         finally:
